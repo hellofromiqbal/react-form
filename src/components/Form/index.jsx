@@ -7,7 +7,13 @@ import { signUpFormSchema } from '../../helpers/zodValidator';
 const Form = () => {
   const { register, handleSubmit, reset, formState: {errors} } = useForm({resolver: zodResolver(signUpFormSchema)})
   const submittedData = (data) => {
-    console.log(data);
+    const { name, email, password, confirmPassword } = data;
+    alert(`
+      Name: ${name}
+      Email: ${email}
+      Password: ${password}
+      Confirm Password: ${confirmPassword}
+    `);
     reset();
   };
   return (
